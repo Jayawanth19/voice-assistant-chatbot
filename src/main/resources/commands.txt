@@ -1,0 +1,28 @@
+# Voice Assistant — Built-in Commands
+# These are handled locally (no AI API call needed).
+# Format: keyword → description
+
+# Date & Time
+"what time is it"     → Current system time
+"what's the date"     → Today's date
+"current time"        → Current system time
+
+# Weather
+"weather in <city>"   → Current weather for that city
+"temperature in <city>" → Temperature + conditions
+
+# Fun
+"tell me a joke"      → Random programmer joke
+"say a joke"          → Same as above
+
+# Navigation
+"clear chat"          → Reset conversation history
+"reset chat"          → Same as above
+"help"                → Show available commands
+"what can you do"     → Show available commands
+
+# Greetings (handled locally for instant response)
+"hello" / "hi" / "hey"
+"good morning" / "good afternoon" / "good evening"
+
+# Everything else → sent to AI (Groq / OpenAI)

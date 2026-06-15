@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"/>
+</head>
+<body>
+
+<!-- ── Hidden session ID passed to JS ── -->
+<input type="hidden" id="sessionId" th:value="${sessionId}"/>
+
+<!-- ── App Shell ── -->
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">🤖</div>
+                <span class="logo-text">Aria</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-btn active" id="btnNewChat">
+                <span class="nav-icon">💬</span> New Chat
+            </button>
+            <button class="nav-btn" id="btnHelp">
+                <span class="nav-icon">❓</span> Help
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Ready</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main chat area -->
+    <main class="chat-area">
+
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-info">
+                <h1 class="header-title">Voice Assistant</h1>
+                <p class="header-subtitle" th:text="${greeting} + ', I\'m Aria. How can I help?'">
+                    Good morning, I'm Aria. How can I help?
+                </p>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" id="btnTtsToggle" title="Toggle voice output">🔊</button>
+                <button class="icon-btn" id="btnClearChat" title="Clear chat">🗑️</button>
+            </div>
+        </header>
+
+        <!-- Messages -->
+        <div class="messages" id="messages">
+            <div class="welcome-message">
+                <div class="welcome-icon">🎙️</div>
+                <p>Say hello or type a message to get started.</p>
+                <p class="welcome-hint">Click the 🎤 button to use your voice.</p>
+            </div>
+        </div>
+
+        <!-- Input bar -->
+        <div class="input-area">
+            <div class="input-wrapper">
+                <textarea
+                    id="userInput"
+                    class="chat-input"
+                    placeholder="Type a message or click the mic…"
+                    rows="1"
+                    maxlength="1000"
+                ></textarea>
+                <div class="input-actions">
+                    <button class="mic-btn" id="btnMic" title="Start voice input">🎤</button>
+                    <button class="send-btn" id="btnSend" title="Send message">➤</button>
+                </div>
+            </div>
+            <div class="voice-status" id="voiceStatus"></div>
+        </div>
+
+    </main>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
